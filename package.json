@@ -1,0 +1,19 @@
+{
+  "name": "riccardo",
+  "version": "0.1.0",
+  "description": "Dependency Injection Container for Express Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mintrupt/riccardo.git"
+  },
+  "author": "류형욱(Hyeonguk Ryu) <mintrupt@mintrupt.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mintrupt/riccardo/issues"
+  },
+  "homepage": "https://github.com/mintrupt/riccardo"
+}
