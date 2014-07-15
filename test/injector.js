@@ -14,8 +14,8 @@ describe('riccardo', function () {
   it('null이 아니어야 합니다', function () {
     assert(riccardo);
   });
-  it('riccardo.$와 riccardo.inject는 같아야 합니다.', function () {
-    assert(riccardo.$ === riccardo.inject);
+  it('riccardo.$와 riccardo.lazy는 같아야 합니다.', function () {
+    assert(riccardo.$ === riccardo.lazy);
   });
   it('riccardo.get과 riccardo.set이 있어야 합니다.', function () {
     assert(riccardo.get);
@@ -49,7 +49,7 @@ describe('riccardo', function () {
       func = riccardo.$(func);
       func();
     });
-    it('실행 시간 주입이 이루어져야 합니다.', function () {
+    it('실행 시간 추가 주입이 이루어져야 합니다.', function () {
       var a = one, b = two;
       var func = function (req, one, res, two, next) {
         assert(one === a);
@@ -62,7 +62,7 @@ describe('riccardo', function () {
       func = riccardo.inject(func);
       assert.equal(func('req', 'res', 'next'), 'returnValue');
     });
-    it('실행 시간 주입이 실패해야 합니다.', function () {
+    it('실행 시간 추가 주입이 실패해야 합니다.', function () {
       var a = one, b = two;
       var func = function (req, one, res, two, next) {
         assert(one === a);
@@ -75,6 +75,44 @@ describe('riccardo', function () {
       assert.throws(function () {
         func()
       });
+    });
+    it('실행 시간 전체 주입에 실패해야 합니다.', function () {
+      riccardo.set('one', undefined);
+      riccardo.set('two', undefined);
+      riccardo.set('three', undefined);
+      riccardo.set('one', one);
+      riccardo.set('two', two);
+      var a = one, b = two;
+      var c = 'three';
+      var func = function (one, two, three) {
+        assert(one === a);
+        assert(two === b);
+        assert(three === c);
+      };
+      func = riccardo.inject(func);
+      riccardo.set('three', c);
+      assert.throws(function () {
+        func();
+      });
+    });
+  });
+  describe('riccardo.lazy', function () {
+    it('실행 시간 전체 주입에 성공해야 합니다.', function () {
+      riccardo.set('one', undefined);
+      riccardo.set('two', undefined);
+      riccardo.set('three', undefined);
+      riccardo.set('one', one);
+      riccardo.set('two', two);
+      var a = one, b = two;
+      var c = 'three';
+      var func = function (one, two, three) {
+        assert(one === a);
+        assert(two === b);
+        assert(three === c);
+      };
+      func = riccardo.lazy(func);
+      riccardo.set('three', c);
+      func();
     });
   });
 });
