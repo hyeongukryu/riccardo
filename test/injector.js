@@ -57,9 +57,10 @@ describe('riccardo', function () {
         assert(req == 'req');
         assert(res == 'res');
         assert(next == 'next');
+        return 'returnValue';
       };
       func = riccardo.inject(func);
-      func('req', 'res', 'next');
+      assert.equal(func('req', 'res', 'next'), 'returnValue');
     });
     it('실행 시간 주입이 실패해야 합니다.', function () {
       var a = one, b = two;
