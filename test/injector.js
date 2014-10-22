@@ -96,6 +96,39 @@ describe('riccardo', function () {
       });
     });
   });
+  describe('riccardo.inject, 제너레이터 함수', function () {
+    it('one과 two가 주입되어야 합니다.', function () {
+      var a = one, b = two;
+      var func = function* (one, two) {
+        yield 'yield0';
+        assert(one === a);
+        assert(two === b);
+        yield 'yield1';
+        return 'return';
+      };
+      func = riccardo.$(func);
+      var g = func();
+      assert.strictEqual(g.next().value, 'yield0');
+      assert.strictEqual(g.next().value, 'yield1');
+      assert.strictEqual(g.next().value, 'return');
+    });
+    it('실행 시간 추가 주입이 이루어져야 합니다.', function () {
+      var a = one, b = two;
+      var func = function* (req, one, res, two, next) {
+        yield 'yield0';
+        assert(one === a);
+        assert(two === b);
+        assert(req == 'req');
+        assert(res == 'res');
+        assert(next == 'next');
+        return 'returnValue';
+      };
+      func = riccardo.inject(func);
+      var g = func('req', 'res', 'next');
+      assert.strictEqual(g.next().value, 'yield0');
+      assert.strictEqual(g.next().value, 'returnValue');
+    });
+  });
   describe('riccardo.lazy', function () {
     it('실행 시간 전체 주입에 성공해야 합니다.', function () {
       riccardo.set('one', undefined);
