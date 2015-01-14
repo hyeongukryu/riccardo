@@ -54,9 +54,9 @@ describe('riccardo', function () {
       var func = function (req, one, res, two, next) {
         assert(one === a);
         assert(two === b);
-        assert(req == 'req');
-        assert(res == 'res');
-        assert(next == 'next');
+        assert(req === 'req');
+        assert(res === 'res');
+        assert(next === 'next');
         return 'returnValue';
       };
       func = riccardo.inject(func);
@@ -67,9 +67,9 @@ describe('riccardo', function () {
       var func = function (req, one, res, two, next) {
         assert(one === a);
         assert(two === b);
-        assert(req == 'req');
-        assert(res == 'res');
-        assert(next == 'next');
+        assert(req === 'req');
+        assert(res === 'res');
+        assert(next === 'next');
       };
       func = riccardo.inject(func);
       assert.throws(function () {
@@ -118,9 +118,9 @@ describe('riccardo', function () {
         yield 'yield0';
         assert(one === a);
         assert(two === b);
-        assert(req == 'req');
-        assert(res == 'res');
-        assert(next == 'next');
+        assert(req === 'req');
+        assert(res === 'res');
+        assert(next === 'next');
         return 'returnValue';
       };
       func = riccardo.inject(func);
