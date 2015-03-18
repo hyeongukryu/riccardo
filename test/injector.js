@@ -9,8 +9,9 @@ var two = {
 };
 
 var assert = require('assert');
-describe('riccardo', function () {
-  var riccardo = require('../');
+describe('injector', function () {
+  var Riccardo = require('../');
+  var riccardo = new Riccardo();
   it('null이 아니어야 합니다', function () {
     assert(riccardo);
   });
