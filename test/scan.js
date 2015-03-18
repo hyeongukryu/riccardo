@@ -19,10 +19,10 @@ describe('scan', function () {
         .factory('target', function () {
           return 'Target';
         })
+        .scan('scanTarget')
         .factory('namespace', function (scan, target) {
           return scan + target;
-        })
-        .scan('scanTarget');
+        });
 
       assert.strictEqual(riccardo.get('oneInnerScanTarget'), 1);
       assert.strictEqual(riccardo.get('twoScanTarget'), 2);
@@ -30,11 +30,16 @@ describe('scan', function () {
       assert.strictEqual(riccardo.get('fourScanTarget'), 4);
       assert.strictEqual(riccardo.get('eightScanTarget'), 8);
     });
-    it('사용자 지정 이름 공간', function () {
+    it('사용자 지정 이름 공간, 메서드 체이닝, 리스트 요청', function () {
       var riccardo = new Riccardo();
       riccardo.set('riccardo', riccardo);
       riccardo.set('namespace', 'Service');
-      riccardo.scan('scanTarget', 'service');
+      
+      var list = riccardo.scan('scanTarget', 'service', true);
+      assert.strictEqual(list.length, 5);
+      list.sort();
+      assert.deepEqual(list, ['eightService', 'fourService', 'oneInnerService', 'sumService', 'twoService']);
+
       assert.strictEqual(riccardo.get('oneInnerService'), 1);
       assert.strictEqual(riccardo.get('twoService'), 2);
       assert.strictEqual(riccardo.get('sumService'), 15);
