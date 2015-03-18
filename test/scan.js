@@ -9,19 +9,21 @@ describe('scan', function () {
     assert.strictEqual(typeof riccardo.scan, 'function');
   });
 
-
   describe('모든 파일을 고려하여야 합니다.', function () {
-    it('자동 이름 공간', function () {
+    it('자동 이름 공간, 메서드 체이닝', function () {
       var riccardo = new Riccardo();
-      riccardo.set('riccardo', riccardo);
-      riccardo.set('scan', 'Scan');
-      riccardo.factory('target', function () {
-        return 'Target';
-      });
-      riccardo.factory('namespace', function (scan, target) {
-        return scan + target;
-      });
-      riccardo.scan('scanTarget');
+      
+      riccardo
+        .set('riccardo', riccardo)
+        .set('scan', 'Scan')
+        .factory('target', function () {
+          return 'Target';
+        })
+        .factory('namespace', function (scan, target) {
+          return scan + target;
+        })
+        .scan('scanTarget');
+
       assert.strictEqual(riccardo.get('oneInnerScanTarget'), 1);
       assert.strictEqual(riccardo.get('twoScanTarget'), 2);
       assert.strictEqual(riccardo.get('sumScanTarget'), 15);
