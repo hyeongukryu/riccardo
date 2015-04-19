@@ -3,9 +3,15 @@ Riccardo [![Build Status](http://img.shields.io/travis/mintrupt/riccardo/master.
 
 Dependency Injection Container for Node.js / io.js
 
+설치하기
+--------
+
 ```shell
 npm install riccardo --save
 ```
+
+사용하기
+--------
 
 ```js
 const Riccardo = require('riccardo');
