@@ -1,7 +1,7 @@
 {
   "name": "riccardo",
-  "version": "0.5.0",
-  "description": "Dependency Injection Container for Node.js / io.js",
+  "version": "0.5.1",
+  "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {
     "callsite": "*",
