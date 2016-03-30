@@ -3,4 +3,6 @@ describe('riccardo', function () {
   require('./factory');
   require('./capitalizer');
   require('./scan');
+  require('./update');
+  require('./reverse');
 });

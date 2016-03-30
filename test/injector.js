@@ -30,12 +30,12 @@ describe('injector', function () {
     it('없는 key를 get하면 undefined를 반환합니다.', function () {
       assert(riccardo.get('riccardo') === undefined);
     });
-    it('set에 성공하고, 첫 번째 값이 유지되어야 합니다.', function () {
-      riccardo.set('one', one);
-      riccardo.set('two', two);
-      
+    it('set에 성공하고, 갱신되어야 합니다.', function () {
       riccardo.set('one', two);
       riccardo.set('two', one);
+
+      riccardo.set('one', one);
+      riccardo.set('two', two);
     });
     it('set한 값을 get할 수 있어야 합니다.', function () {
       assert(riccardo.get('one') === one);
