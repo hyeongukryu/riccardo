@@ -24,6 +24,10 @@ describe('scan', function () {
           return scan + target;
         });
 
+      assert.strictEqual(riccardo.get('innerScanTarget'), 'inner');
+      assert.strictEqual(riccardo.get('indexScanTarget'), 'index');
+      assert.strictEqual(riccardo.get('defaultIndexScanTarget'), 'default');
+      assert.strictEqual(riccardo.get('scanTarget'), 'service');
       assert.strictEqual(riccardo.get('oneInnerScanTarget'), 1);
       assert.strictEqual(riccardo.get('twoScanTarget'), 2);
       assert.strictEqual(riccardo.get('sumScanTarget'), 15);
@@ -36,10 +40,18 @@ describe('scan', function () {
       riccardo.set('namespace', 'Service');
       
       var list = riccardo.scan('scanTarget', 'service', true);
-      assert.strictEqual(list.length, 5);
+      assert.strictEqual(list.length, 9);
+      var expectedList = [
+        'eightService', 'fourService', 'oneInnerService',
+        'sumService', 'twoService', 'innerService', 'service', 'indexService', 'defaultIndexService'];
       list.sort();
-      assert.deepEqual(list, ['eightService', 'fourService', 'oneInnerService', 'sumService', 'twoService']);
+      expectedList.sort();
+      assert.deepEqual(list, expectedList);
 
+      assert.strictEqual(riccardo.get('innerService'), 'inner');
+      assert.strictEqual(riccardo.get('indexService'), 'index');
+      assert.strictEqual(riccardo.get('defaultIndexService'), 'default');
+      assert.strictEqual(riccardo.get('service'), 'service');
       assert.strictEqual(riccardo.get('oneInnerService'), 1);
       assert.strictEqual(riccardo.get('twoService'), 2);
       assert.strictEqual(riccardo.get('sumService'), 15);
