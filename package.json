@@ -1,11 +1,12 @@
 {
   "name": "riccardo",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {
     "callsite": "*",
-    "glob": "*"
+    "glob": "*",
+    "function-arguments": "*"
   },
   "scripts": {
     "test": "mocha ./test/index.js --harmony -R spec"
