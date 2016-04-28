@@ -5,4 +5,5 @@ describe('riccardo', function () {
   require('./scan');
   require('./update');
   require('./reverse');
+  require('./annotate');
 });
