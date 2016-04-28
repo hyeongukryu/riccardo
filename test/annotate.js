@@ -30,5 +30,13 @@ describe('annotate', function () {
     assert.deepEqual(annotate(test => {}), ['test']);
     assert.deepEqual(annotate(test => test + 42), ['test']);
     assert.deepEqual(annotate(test => ({})), ['test']);
+    assert.deepEqual(annotate(test => ({
+      te(st) {},
+      anno(tate) {}
+    })), ['test']);
+    assert.deepEqual(annotate((test) => ({
+      te(st) {},
+      anno(tate) {}
+    })), ['test']);
   });
 });
