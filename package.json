@@ -1,6 +1,6 @@
 {
   "name": "riccardo",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/mintrupt/riccardo/issues"
   },
-  "homepage": "https://github.com/mintrupt/riccardo"
+  "homepage": "https://github.com/mintrupt/riccardo",
+  "devDependencies": {
+    "mocha": "*"
+  }
 }

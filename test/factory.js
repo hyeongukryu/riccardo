@@ -51,6 +51,14 @@ function module3(module2) {
   assert(false);
 }
 
+function moduleP(moduleQ) {
+  assert(false);
+}
+
+function moduleQ(unknownModule) {
+  assert(false);
+}
+
 describe('factory', function () {
 
   var Riccardo = require('../');
@@ -71,6 +79,8 @@ describe('factory', function () {
     riccardo.factory('module1', module1);
     riccardo.factory('module2', module2);
     riccardo.factory('module3', module3);
+    riccardo.factory('moduleP', moduleP);
+    riccardo.factory('moduleQ', moduleQ);
     assert(log !== null);
   };
 
@@ -152,6 +162,23 @@ describe('factory', function () {
       setup(riccardo);
       assert.throws(function () {
         riccardo.get('module3');
+      });
+    });
+  });
+
+  describe('의존성을 충족시킬 수 없으면 예외를 던져야 합니다.', function () {
+    it('moduleP', function () {
+      var riccardo = new Riccardo();
+      setup(riccardo);
+      assert.throws(function () {
+        riccardo.get('moduleP');
+      });
+    });
+    it('moduleQ', function () {
+      var riccardo = new Riccardo();
+      setup(riccardo);
+      assert.throws(function () {
+        riccardo.get('moduleQ');
       });
     });
   });
