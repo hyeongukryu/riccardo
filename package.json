@@ -1,6 +1,6 @@
 {
   "name": "riccardo",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {

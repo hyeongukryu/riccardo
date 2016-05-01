@@ -182,4 +182,29 @@ describe('factory', function () {
       });
     });
   });
+
+  describe('그래프 내보내기', function () {
+    it('올바른 그래프를 내보내야 합니다.', function () {
+      var riccardo = new Riccardo();
+      setup(riccardo);
+      var actual = JSON.stringify(riccardo.graph());
+      var expected = JSON.stringify([
+        {
+          name: 'moduleA',
+          dependencies: ['moduleB', 'moduleC', 'moduleD']
+        },
+        { name: 'moduleB', dependencies: ['moduleC', 'moduleE'] },
+        { name: 'moduleC', dependencies: ['moduleD'] },
+        { name: 'moduleD', dependencies: [] },
+        { name: 'moduleE', dependencies: [] },
+        { name: 'moduleF', dependencies: ['moduleA'] },
+        { name: 'module1', dependencies: ['module1'] },
+        { name: 'module2', dependencies: ['module3'] },
+        { name: 'module3', dependencies: ['module2'] },
+        { name: 'moduleP', dependencies: ['moduleQ'] },
+        { name: 'moduleQ', dependencies: ['unknownModule'] }
+      ]);
+      assert.strictEqual(actual, expected);
+    });
+  });
 });
