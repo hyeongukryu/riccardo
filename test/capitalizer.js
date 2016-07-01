@@ -50,7 +50,7 @@ describe('capitalizer', function () {
   });
   describe('toPascalCase', function () {
     helper.checkFunctionExists(capitalizer, 'toPascalCase');
-    it('이름 PascalCase를 그대로 반영해야 합니다.', function () {
+    it('이름 PascalCase를 그대로 반환해야 합니다.', function () {
       assert.strictEqual(capitalizer.toPascalCase('PascalCase'), 'PascalCase');
     });
     it('PascalCase로 변환해야 합니다.', function () {
