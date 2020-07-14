@@ -1,27 +1,27 @@
 {
   "name": "riccardo",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {
-    "callsite": "*",
-    "function-args": "^1.0.1",
-    "glob": "*"
+    "callsite": "^1.0.0",
+    "function-args": "^1.0.9",
+    "glob": "^7.1.6"
   },
   "scripts": {
     "test": "mocha ./test/index.js --harmony -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mintrupt/riccardo.git"
+    "url": "https://github.com/hyeongukryu/riccardo.git"
   },
-  "author": "류형욱(Hyeonguk Ryu) <mintrupt@mintrupt.com>",
+  "author": "Hyeonguk Ryu <ryu@hyeonguk.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mintrupt/riccardo/issues"
+    "url": "https://github.com/hyeongukryu/riccardo/issues"
   },
-  "homepage": "https://github.com/mintrupt/riccardo",
+  "homepage": "https://github.com/hyeongukryu/riccardo",
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^8.0.1"
   }
 }

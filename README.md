@@ -1,4 +1,4 @@
-Riccardo [![Build Status](https://img.shields.io/travis/mintrupt/riccardo/master.svg?style=flat-square)](https://travis-ci.org/mintrupt/riccardo)
+Riccardo [![Build Status](https://img.shields.io/travis/hyeongukryu/riccardo/master.svg?style=flat-square)](https://travis-ci.org/hyeongukryu/riccardo)
 ========
 
 Dependency Injection Container for Node.js
@@ -7,7 +7,7 @@ Dependency Injection Container for Node.js
 --------
 
 ```shell
-npm install riccardo --save
+npm install riccardo
 ```
 
 사용하기
