@@ -1,11 +1,11 @@
 {
   "name": "riccardo",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Dependency Injection Container for Node.js",
   "main": "index.js",
   "dependencies": {
     "callsite": "^1.0.0",
-    "function-args": "^1.0.9",
+    "function-args": "^1.0.10",
     "glob": "^7.1.6"
   },
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/hyeongukryu/riccardo",
   "devDependencies": {
-    "mocha": "^8.0.1"
+    "mocha": "^8.1.1"
   }
 }
