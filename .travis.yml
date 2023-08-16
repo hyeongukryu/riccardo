@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - node
-  - lts/*
-  - 12
-  - 14
-  - 15
-before_install: npm install -g mocha

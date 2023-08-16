@@ -1,4 +1,4 @@
-Riccardo [![Build Status](https://img.shields.io/travis/hyeongukryu/riccardo/master.svg?style=flat-square)](https://travis-ci.org/hyeongukryu/riccardo)
+Riccardo
 ========
 
 Dependency Injection Container for Node.js
